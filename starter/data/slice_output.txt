@@ -1,0 +1,32 @@
+
+slice:  10th precision : 1.0 recall: 0.0 fbeta: 0.0
+
+slice:  11th precision : 1.0 recall: 0.0 fbeta: 0.0
+
+slice:  12th precision : 1.0 recall: 0.0 fbeta: 0.0
+
+slice:  1st-4th precision : 1.0 recall: 1.0 fbeta: 1.0
+
+slice:  5th-6th precision : 1.0 recall: 0.0 fbeta: 0.0
+
+slice:  7th-8th precision : 1.0 recall: 0.0 fbeta: 0.0
+
+slice:  9th precision : 1.0 recall: 0.0 fbeta: 0.0
+
+slice:  Assoc-acdm precision : 1.0 recall: 0.0 fbeta: 0.0
+
+slice:  Assoc-voc precision : 1.0 recall: 0.0 fbeta: 0.0
+
+slice:  Bachelors precision : 1.0 recall: 0.0066518847006651885 fbeta: 0.013215859030837005
+
+slice:  Doctorate precision : 1.0 recall: 0.03076923076923077 fbeta: 0.059701492537313446
+
+slice:  HS-grad precision : 1.0 recall: 0.0 fbeta: 0.0
+
+slice:  Masters precision : 1.0 recall: 0.00546448087431694 fbeta: 0.010869565217391304
+
+slice:  Preschool precision : 1.0 recall: 1.0 fbeta: 1.0
+
+slice:  Prof-school precision : 1.0 recall: 0.060240963855421686 fbeta: 0.11363636363636363
+
+slice:  Some-college precision : 1.0 recall: 0.0 fbeta: 0.0

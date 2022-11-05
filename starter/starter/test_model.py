@@ -72,7 +72,8 @@ def test_trained_model(process_data_f):
     """
     X_train, y_train,_,_=process_data_f
     model=train_model(X_train, y_train)
-    pickle.dump(model, open('../model/rfc_model.pkl', 'wb'))
+    with open('../model/model_pkl', 'wb') as files:
+        pickle.dump(model, files)
 
     assert os.path.exists('../model/rfc_model.pkl')
 
