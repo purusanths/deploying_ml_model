@@ -1,5 +1,5 @@
 #from turtle import st
-from fastapi import FastAPI, Request
+# from fastapi import FastAPI, Request
 # import pickle
 #from pydantic import BaseModel,Field
 #from starter.ml.data import process_data
