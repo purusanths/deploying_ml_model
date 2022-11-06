@@ -37,24 +37,24 @@ async def greeting():
     return {"Greetings": "Welcome to the MLops World!"}
 
 
-@app.post("/inference/")
-async def inference(request: Taggeditem): #,body=Taggeditem
+# @app.post("/inference/")
+# async def inference(request: Taggeditem): #,body=Taggeditem
 
-    data =  request.dict()
-    data1={}
-    for key in data.keys():
-        data1[key] =[data[key]]
-    data = pd.DataFrame(data1)
-    data.columns =[col.replace("_","-") for col in data.columns]
+#     data =  request.dict()
+#     data1={}
+#     for key in data.keys():
+#         data1[key] =[data[key]]
+#     data = pd.DataFrame(data1)
+#     data.columns =[col.replace("_","-") for col in data.columns]
 
-    model = pickle.load(open('/home/purusanth/project3/nd0821-c3-starter-code/starter/model/rfc_model.pkl', 'rb'))
-    lb = pickle.load(open('/home/purusanth/project3/nd0821-c3-starter-code/starter/model/lb.pkl', 'rb'))
-    encoder = pickle.load(open('/home/purusanth/project3/nd0821-c3-starter-code/starter/model/encoder.pkl', 'rb'))
-    cat_features = ["workclass","education","marital-status","occupation","relationship","race","sex","native-country"]
+#     model = pickle.load(open('/home/purusanth/project3/nd0821-c3-starter-code/starter/model/rfc_model.pkl', 'rb'))
+#     lb = pickle.load(open('/home/purusanth/project3/nd0821-c3-starter-code/starter/model/lb.pkl', 'rb'))
+#     encoder = pickle.load(open('/home/purusanth/project3/nd0821-c3-starter-code/starter/model/encoder.pkl', 'rb'))
+#     cat_features = ["workclass","education","marital-status","occupation","relationship","race","sex","native-country"]
 
-    X_test, y_test, encoder, lb = process_data(
-    data, categorical_features=cat_features, label=None, training=False,encoder=encoder,lb=lb
-    )
-    prediction= model.predict(X_test)[0]
-    print(prediction)
-    return {"prediction":str(prediction)}
+#     X_test, y_test, encoder, lb = process_data(
+#     data, categorical_features=cat_features, label=None, training=False,encoder=encoder,lb=lb
+#     )
+#     prediction= model.predict(X_test)[0]
+#     print(prediction)
+#     return {"prediction":str(prediction)}
