@@ -33,7 +33,7 @@ class Taggeditem(BaseModel):
 app = FastAPI()
 
 @app.get("/") ## define an endpoint
-def greeting():
+async def greeting():
     return {"Greetings": "Welcome to the MLops World!"}
 
 
