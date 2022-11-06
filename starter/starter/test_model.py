@@ -7,6 +7,13 @@ import os
 import pickle
 
 
+import json
+from fastapi.testclient import TestClient
+from main import app
+
+client = TestClient(app)
+
+
 
 @pytest.fixture
 def data():
@@ -72,7 +79,7 @@ def test_trained_model(process_data_f):
     """
     X_train, y_train,_,_=process_data_f
     model=train_model(X_train, y_train)
-    with open('../model/model_pkl', 'wb') as files:
+    with open('../model/rfc_model.pkl', 'wb') as files:
         pickle.dump(model, files)
 
     assert os.path.exists('../model/rfc_model.pkl')
@@ -100,4 +107,70 @@ def test_compute_model_metrics(process_data_f):
     assert 0< precision
     assert 0< recall
     assert 0< fbeta 
+
+def test_get():
+    r = client.get("/")
+    assert r.status_code == 200
+    assert r.json() == {"Greetings": "Welcome to the MLops World!"}
+
+def test_post():
+    data = json.dumps({
+        "age": 45,
+        "workclass": "State-gov",
+        "fnlgt": 77516,
+        "education": "Bachelors",
+        "education-num": 13,
+        "marital-status": "Never-married",
+        "occupation": "Adm-clerical",
+        "relationship": "Not-in-family",
+        "race": "White",
+        "sex": "Male",
+        "capital-gain": 2174,
+        "capital-loss": 0,
+        "hours-per-week": 40,
+        "native-country": "United-States"
+        })
+    r = client.post("/inference/",data=data)
+    assert r.status_code == 200
+
+def test_post_prediction_0():
+    data = json.dumps({
+        "age": 45,
+        "workclass": "State-gov",
+        "fnlgt": 77516,
+        "education": "Bachelors",
+        "education-num": 13,
+        "marital-status": "Never-married",
+        "occupation": "Adm-clerical",
+        "relationship": "Not-in-family",
+        "race": "White",
+        "sex": "Male",
+        "capital-gain": 2174,
+        "capital-loss": 0,
+        "hours-per-week": 40,
+        "native-country": "United-States"
+        })
+    r = client.post("/inference/",data=data)
+    assert r.json() == {"prediction": "0"}
+
+def test_post_prediction_1():
+    ### need to find an example which give the model prediction of 1
+    data = json.dumps({
+        "age": 28,
+        "workclass": "State-gov",
+        "fnlgt": 77516,
+        "education": "Bachelors",
+        "education-num": 13,
+        "marital-status": "Never-married",
+        "occupation": "Adm-clerical",
+        "relationship": "Not-in-family",
+        "race": "White",
+        "sex": "Male",
+        "capital-gain": 3000,
+        "capital-loss": 0,
+        "hours-per-week": 40,
+        "native-country": "United-States"
+        })
+    r = client.post("/inference/",data=data)
+    assert r.json() = {"prediction": "0"}
 

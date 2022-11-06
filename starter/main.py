@@ -47,9 +47,9 @@ async def inference(request: Taggeditem): #,body=Taggeditem
     data = pd.DataFrame(data1)
     data.columns =[col.replace("_","-") for col in data.columns]
 
-    model = pickle.load(open('./model/rfc_model.pkl', 'rb'))
-    lb = pickle.load(open('./model/lb', 'rb'))
-    encoder = pickle.load(open('./model/encoder', 'rb'))
+    model = pickle.load(open('/home/purusanth/project3/nd0821-c3-starter-code/starter/model/rfc_model.pkl', 'rb'))
+    lb = pickle.load(open('/home/purusanth/project3/nd0821-c3-starter-code/starter/model/lb.pkl', 'rb'))
+    encoder = pickle.load(open('/home/purusanth/project3/nd0821-c3-starter-code/starter/model/encoder.pkl', 'rb'))
     cat_features = ["workclass","education","marital-status","occupation","relationship","race","sex","native-country"]
 
     X_test, y_test, encoder, lb = process_data(
