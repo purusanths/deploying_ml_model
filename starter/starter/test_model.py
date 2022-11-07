@@ -172,5 +172,5 @@ def test_post_prediction_1():
         "native-country": "United-States"
         })
     r = client.post("/inference/",data=data)
-    assert r.json() = {"prediction": "0"}
+    assert r.json() == {"prediction": "0"}
 
