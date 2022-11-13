@@ -48,10 +48,10 @@ print(compute_model_metrics(y_test, test_prediction))
 # print(test[test['prediction']==1])
 # test[test['prediction']==1].to_csv("prediction.csv",index=False)
 
-slice_metricses={}
-for slice_val in np.unique(test['education']):
-    precision, recall, fbeta=slice_metrics(model,test, slice_col="education",slice_val=slice_val,cat_features=cat_features,encoder=encoder,lb=lb)
-    f = open("../data/slice_output.txt", "a")
-    f.write("\nslice: {} precision : {} recall: {} fbeta: {}\n".format(slice_val,precision,recall,fbeta))
-    f.close()
+# slice_metricses={}
+# for slice_val in np.unique(test['education']):
+#     precision, recall, fbeta=slice_metrics(model,test, slice_col="education",slice_val=slice_val,cat_features=cat_features,encoder=encoder,lb=lb)
+#     f = open("../data/slice_output.txt", "a")
+#     f.write("\nslice: {} precision : {} recall: {} fbeta: {}\n".format(slice_val,precision,recall,fbeta))
+#     f.close()
 
