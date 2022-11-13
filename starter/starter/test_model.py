@@ -15,7 +15,7 @@ client = TestClient(app)
 
 
 
-@pytest.fixture
+@pytest.fixture(scope="session")
 def data():
     """
     A fixture to retur the data
@@ -25,7 +25,7 @@ def data():
 
     return data
 
-@pytest.fixture
+@pytest.fixture(scope="session")
 def cat_features():
     """
     A fixture to return the cat feature
@@ -42,7 +42,7 @@ def cat_features():
     ]
     return cat_features
 
-@pytest.fixture
+@pytest.fixture(scope="session")
 def train_test_splits(data):
     """
     A fixture to return the train test split
