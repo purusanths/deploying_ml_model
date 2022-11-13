@@ -95,19 +95,19 @@ def test_inference(process_data_f):
 
     assert X_test.shape[0]==prediction.shape[0]
 
-def test_compute_model_metrics(process_data_f):
-    """
-    unit test to test the performacne metrices
-    """
-    X_train, y_train, X_test, y_test= process_data_f
-    model = pickle.load(open('starter/model/rfc_model.pkl', 'rb')) #'../model/rfc_model.pkl'
-    prediction=inference(model,X_test)
+# def test_compute_model_metrics(process_data_f):
+#     """
+#     unit test to test the performacne metrices
+#     """
+#     X_train, y_train, X_test, y_test= process_data_f
+#     model = pickle.load(open('starter/model/rfc_model.pkl', 'rb')) #'../model/rfc_model.pkl'
+#     prediction=inference(model,X_test)
 
-    precision, recall, fbeta =compute_model_metrics(y_test,prediction)
+#     precision, recall, fbeta =compute_model_metrics(y_test,prediction)
 
-    assert 0< precision
-    assert 0< recall
-    assert 0< fbeta 
+#     assert 0< precision
+#     assert 0< recall
+#     assert 0< fbeta 
 
 def test_get():
     r = client.get("/")
