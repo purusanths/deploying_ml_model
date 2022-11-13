@@ -18,7 +18,7 @@ data = json.dumps({
         "native-country": "United-States"
         })
 #headers={'Content-Type: application/json'}
-response = requests.post("https://p3-final-app.herokuapp.com/inference",data=data)
+response = requests.post("https://final-app-p3.herokuapp.com/inference",data=data)
 
 print(response.status_code)
 print(response.json())
