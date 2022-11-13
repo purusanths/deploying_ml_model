@@ -1,4 +1,4 @@
-from turtle import st
+# turtle import st
 from fastapi import FastAPI, Request
 import pickle
 from pydantic import BaseModel,Field
