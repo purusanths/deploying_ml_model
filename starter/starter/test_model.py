@@ -80,17 +80,17 @@ def test_trained_model(process_data_f):
     """
     X_train, y_train,_,_=process_data_f
     model=train_model(X_train, y_train)
-    with open('../model/rfc_model.pkl', 'wb') as files:
+    with open('starter/model/rfc_model.pkl', 'wb') as files: #'../model/rfc_model.pkl'
         pickle.dump(model, files)
 
-    assert os.path.exists('../model/rfc_model.pkl')
+    assert os.path.exists('starter/model/rfc_model.pkl')  # '../model/rfc_model.pkl'
 
 def test_inference(process_data_f):
     """
     A unit test to test inference function
     """
     X_train, y_train, X_test, y_test= process_data_f
-    model = pickle.load(open('../model/rfc_model.pkl', 'rb'))
+    model = pickle.load(open('starter/model/rfc_model.pkl', 'rb')) #'../model/rfc_model.pkl'
     prediction=inference(model,X_test)
 
     assert X_test.shape[0]==prediction.shape[0]
@@ -100,7 +100,7 @@ def test_compute_model_metrics(process_data_f):
     unit test to test the performacne metrices
     """
     X_train, y_train, X_test, y_test= process_data_f
-    model = pickle.load(open('../model/rfc_model.pkl', 'rb'))
+    model = pickle.load(open('starter/model/rfc_model.pkl', 'rb')) #'../model/rfc_model.pkl'
     prediction=inference(model,X_test)
 
     precision, recall, fbeta =compute_model_metrics(y_test,prediction)
