@@ -2,7 +2,7 @@
 from fastapi import FastAPI, Request
 import pickle
 from pydantic import BaseModel,Field
-from starter.starter.ml.data import process_data
+from starter.ml.data import process_data
 import pickle
 import pandas as pd
 
