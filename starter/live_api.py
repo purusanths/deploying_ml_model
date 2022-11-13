@@ -17,7 +17,8 @@ data = json.dumps({
         "hours-per-week": 40,
         "native-country": "United-States"
         })
-response = requests.post("http://127.0.0.1:8000/inference/",data=data)
+#headers={'Content-Type: application/json'}
+response = requests.post("https://p3-final-app.herokuapp.com/inference",data=data)
 
 print(response.status_code)
 print(response.json())
