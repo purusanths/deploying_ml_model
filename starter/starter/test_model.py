@@ -20,7 +20,8 @@ def data():
     """
     A fixture to retur the data
     """
-    data =pd.read_csv('../data/census.csv')
+    #data =pd.read_csv('../data/census.csv')
+    data = pd.read_csv('starter/data/census.csv')
 
     return data
 
