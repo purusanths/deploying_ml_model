@@ -50,7 +50,7 @@ def train_test_splits(data):
     train, test = train_test_split(data, test_size=0.20)
     return train,test
 
-@pytest.fixture
+@pytest.fixture(scope="module")
 def process_data_f(train_test_splits,cat_features):
     """
     A fixture to return the train test split
