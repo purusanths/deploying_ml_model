@@ -51,6 +51,7 @@ async def inference(request: Taggeditem): #,body=Taggeditem
         data1[key] =[data[key]]
     data = pd.DataFrame(data1)
     data.columns =[col.replace("_","-") for col in data.columns]
+    print(data.columns)
 
     model = pickle.load(open('starter/model/rfc_model.pkl', 'rb')) #/home/purusanth/project3/nd0821-c3-starter-code
     lb = pickle.load(open('starter/model/lb.pkl', 'rb'))# /home/purusanth/project3/nd0821-c3-starter-code
